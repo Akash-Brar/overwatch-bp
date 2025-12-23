@@ -14,8 +14,8 @@
         "BP2": {
             "free": [
                 {
-                    "name": "Tracer",
-                    "type": "thon"
+                    "name": "Tracer-thon",
+                    "type": "Voice Line"
                 }
             ],
             "paid": [
@@ -584,12 +584,12 @@
             "free": [],
             "paid": [
                 {
-                    "name": "P",
-                    "type": "900 Warhead"
+                    "name": "P-900 Warhead",
+                    "type": "Skin"
                 },
                 {
-                    "name": "P",
-                    "type": "900 Warhead"
+                    "name": "P-900 Warhead",
+                    "type": "Player Icon"
                 },
                 {
                     "name": "Skirmisher",
@@ -710,8 +710,8 @@
             "free": [],
             "paid": [
                 {
-                    "name": "Third",
-                    "type": "Most"
+                    "name": "Third-Most-Final Form",
+                    "type": "Voice Line"
                 }
             ]
         },
@@ -759,20 +759,20 @@
             ],
             "paid": [
                 {
-                    "name": "8",
-                    "type": "Bit"
+                    "name": "8-Bit",
+                    "type": "Skin"
                 },
                 {
-                    "name": "8",
-                    "type": "Bit"
+                    "name": "8-Bit Reinhardt",
+                    "type": "Player Icon"
                 },
                 {
-                    "name": "8",
-                    "type": "Bit"
+                    "name": "8-Bit Reinhardt",
+                    "type": "Spray"
                 },
                 {
-                    "name": "8",
-                    "type": "Bit Crown"
+                    "name": "8-Bit Crown",
+                    "type": "Name Card"
                 }
             ]
         },
@@ -798,20 +798,20 @@
             ],
             "paid": [
                 {
-                    "name": "One",
-                    "type": "Eyed Wilhelm"
+                    "name": "One-Eyed Wilhelm",
+                    "type": "Player Icon"
                 },
                 {
-                    "name": "One",
-                    "type": "Eyed Wilhelm"
+                    "name": "One-Eyed Wilhelm",
+                    "type": "Spray"
                 },
                 {
-                    "name": "One",
-                    "type": "Eyed Wilhelm"
+                    "name": "One-Eyed Wilhelm",
+                    "type": "Name Card"
                 },
                 {
-                    "name": "One",
-                    "type": "Eyed Wilhelm"
+                    "name": "One-Eyed Wilhelm",
+                    "type": "Skin"
                 }
             ]
         },
@@ -1476,22 +1476,22 @@
                     "type": "Victory Pose"
                 },
                 {
-                    "name": "8",
-                    "type": "Bit Harmony"
+                    "name": "8-Bit Harmony",
+                    "type": "Spray"
                 },
                 {
                     "name": "Digital Harmony",
                     "type": "Name Card"
                 },
                 {
-                    "name": "8",
-                    "type": "Bit"
+                    "name": "8-Bit",
+                    "type": "Skin"
                 }
             ],
             "paid": [
                 {
-                    "name": "8",
-                    "type": "Bit"
+                    "name": "8-Bit Zenyatta",
+                    "type": "Player Icon"
                 }
             ]
         },
@@ -1566,8 +1566,8 @@
             ],
             "paid": [
                 {
-                    "name": "EEEEEE",
-                    "type": "BOOP"
+                    "name": "EEEEEE-BOOP",
+                    "type": "Voice Line"
                 }
             ]
         },
@@ -1653,8 +1653,8 @@
                     "type": "Spray"
                 },
                 {
-                    "name": "S",
-                    "type": "900 Sentry"
+                    "name": "S-900 Sentry",
+                    "type": "Skin"
                 },
                 {
                     "name": "Pathway Opened",
@@ -1971,8 +1971,8 @@
                     "type": "Voice Line"
                 },
                 {
-                    "name": "Stick",
-                    "type": "Up"
+                    "name": "Stick-Up",
+                    "type": "Victory Pose"
                 }
             ]
         },
@@ -2439,8 +2439,8 @@
                     "type": "Voice Line"
                 },
                 {
-                    "name": "Dance",
-                    "type": "Off"
+                    "name": "Dance-Off",
+                    "type": "Emote"
                 }
             ],
             "paid": [
@@ -3252,20 +3252,20 @@
                     "type": "Emote"
                 },
                 {
-                    "name": "8",
-                    "type": "Bit"
+                    "name": "8-Bit Genji",
+                    "type": "Name Card"
                 },
                 {
-                    "name": "8",
-                    "type": "Bit"
+                    "name": "8-Bit",
+                    "type": "Skin"
                 },
                 {
-                    "name": "8",
-                    "type": "Bit"
+                    "name": "8-Bit Genji",
+                    "type": "Player Icon"
                 },
                 {
-                    "name": "8",
-                    "type": "Bit"
+                    "name": "8-Bit Genji",
+                    "type": "Spray"
                 }
             ]
         },
@@ -3357,28 +3357,28 @@
                     "type": "Spray"
                 },
                 {
-                    "name": "A",
-                    "type": "7000 Wargod"
+                    "name": "A-7000 Wargod",
+                    "type": "Skin"
                 },
                 {
                     "name": "Ana VS. Wargod",
                     "type": "Spray"
                 },
                 {
-                    "name": "A",
-                    "type": "7000 Wargod"
+                    "name": "A-7000 Wargod",
+                    "type": "Skin"
                 },
                 {
-                    "name": "A",
-                    "type": "7000 Wargod"
+                    "name": "A-7000 Wargod",
+                    "type": "Skin"
                 },
                 {
                     "name": "Alas",
                     "type": "Spray"
                 },
                 {
-                    "name": "A",
-                    "type": "7000 Wargod"
+                    "name": "A-7000 Wargod",
+                    "type": "Player Icon"
                 }
             ]
         },
@@ -3626,20 +3626,20 @@
                     "type": "Highlight Intro"
                 },
                 {
-                    "name": "8",
-                    "type": "Bit"
+                    "name": "8-Bit Sombra",
+                    "type": "Player Icon"
                 },
                 {
-                    "name": "8",
-                    "type": "Bit Virus"
+                    "name": "8-Bit Virus",
+                    "type": "Spray"
                 },
                 {
-                    "name": "8",
-                    "type": "Bit"
+                    "name": "8-Bit Sombra",
+                    "type": "Name Card"
                 },
                 {
-                    "name": "8",
-                    "type": "Bit"
+                    "name": "8-Bit",
+                    "type": "Skin"
                 }
             ]
         },
@@ -3647,8 +3647,8 @@
             "free": [],
             "paid": [
                 {
-                    "name": "8",
-                    "type": "Bit"
+                    "name": "8-Bit Sombra",
+                    "type": "Name Card"
                 }
             ]
         },
@@ -3717,8 +3717,8 @@
             "free": [],
             "paid": [
                 {
-                    "name": "GR",
-                    "type": "iffon"
+                    "name": "GR-iffon",
+                    "type": "Skin"
                 },
                 {
                     "name": "Chivalry Isn't Dead",
@@ -3841,8 +3841,8 @@
                     "type": "Voice Line"
                 },
                 {
-                    "name": "8",
-                    "type": "Bit"
+                    "name": "8-Bit",
+                    "type": "Skin"
                 },
                 {
                     "name": "Coin Collect",
@@ -4798,8 +4798,8 @@
         "BP19": {
             "free": [
                 {
-                    "name": "Jack",
-                    "type": "O"
+                    "name": "Jack-O-Lanterns",
+                    "type": "Voice Line"
                 }
             ],
             "paid": []
@@ -4903,8 +4903,8 @@
             "free": [],
             "paid": [
                 {
-                    "name": "Hand",
-                    "type": "Toes and Feet"
+                    "name": "Hand-Toes and Feet-Fingers",
+                    "type": "Voice Line"
                 }
             ]
         },
@@ -5155,8 +5155,8 @@
             "free": [],
             "paid": [
                 {
-                    "name": "Warm",
-                    "type": "Up"
+                    "name": "Warm-Up",
+                    "type": "Victory Pose"
                 }
             ]
         },
@@ -5173,8 +5173,8 @@
             "free": [],
             "paid": [
                 {
-                    "name": "Handstand Push",
-                    "type": "ups"
+                    "name": "Handstand Push-ups",
+                    "type": "Emote"
                 }
             ]
         },
@@ -5768,8 +5768,8 @@
             "free": [],
             "paid": [
                 {
-                    "name": "Kira",
-                    "type": "Kira Beam!"
+                    "name": "Kira-Kira Beam!",
+                    "type": "Voice Line"
                 }
             ]
         },
@@ -5971,8 +5971,8 @@
             "free": [],
             "paid": [
                 {
-                    "name": "R",
-                    "type": "7K Preserver"
+                    "name": "R-7K Preserver",
+                    "type": "Spray"
                 }
             ]
         }
@@ -6336,8 +6336,8 @@
                     "type": "Voice Line"
                 },
                 {
-                    "name": "Exo",
-                    "type": "Ram"
+                    "name": "Exo-Ram",
+                    "type": "Player Icon"
                 },
                 {
                     "name": "Bonesplinter",
@@ -6370,8 +6370,8 @@
         "BP11": {
             "free": [
                 {
-                    "name": "Port",
-                    "type": "de"
+                    "name": "Port-de-Paix",
+                    "type": "Player Icon"
                 },
                 {
                     "name": "Beachy",
@@ -6380,8 +6380,8 @@
             ],
             "paid": [
                 {
-                    "name": "Port",
-                    "type": "de"
+                    "name": "Port-de-Paix",
+                    "type": "Skin"
                 },
                 {
                     "name": "Breezy",

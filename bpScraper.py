@@ -63,7 +63,7 @@ def addItemsToHeroData(heroData, items, season, itemType):
     return heroData
 
 def getItemDetails(itemText, heroName):
-    itemInfo = itemText.split("-")
+    itemInfo = itemText.split(" - ")
     itemName = itemInfo[0].strip()
     itemType = itemInfo[1].replace(heroName, "").strip()
     return itemName, itemType
