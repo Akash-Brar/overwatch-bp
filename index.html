@@ -9,6 +9,41 @@
 <body>
     <h1>Overwatch Battle Pass Items</h1>
 
+    <div id="filters">
+        <!-- Role Filter -->
+        <div class="filter-group">
+            <label for="role-filter">Filter by Role:</label>
+            <select id="role-filter">
+                <option value="all">All Roles</option>
+                <option value="Damage">Damage</option>
+                <option value="Tank">Tank</option>
+                <option value="Support">Support</option>
+            </select>
+        </div>
+
+        <!-- Search by Hero Name -->
+        <div class="filter-group">
+            <label for="hero-search">Search Hero:</label>
+            <input type="text" id="hero-search" placeholder="Type hero name...">
+        </div>
+
+        <!-- Sort Options -->
+        <div class="filter-group">
+            <label for="sort-by">Sort by:</label>
+            <select id="sort-by">
+                <option value="totalItems-desc">Total Items (High to Low)</option>
+                <option value="totalItems-asc">Total Items (Low to High)</option>
+                <option value="name-asc">Hero Name (A-Z)</option>
+                <option value="name-desc">Hero Name (Z-A)</option>
+                <option value="skins-desc">Skins (High to Low)</option>
+                <option value="skins-asc">Skins (Low to High)</option>
+            </select>
+        </div>
+
+        <!-- Reset Filters Button -->
+        <button id="reset-filters">Reset Filters</button>
+    </div>
+
     <table id="items-table">
     </table>
     <script src="script.js"></script>
