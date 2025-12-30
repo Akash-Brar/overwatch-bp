@@ -59,7 +59,7 @@ def addItemsToHeroData(heroData, items, season, freeOrPaid):
         item_exists = False
         
         for existing_item in existing_items:
-            # Compare both name and type to determine uniqueness
+
             if (existing_item['name'] == item['name'] and 
                 existing_item['type'] == item['type']):
                 item_exists = True
@@ -105,6 +105,33 @@ def getTotalItems(heroData):
         heroData[hero]['totalItems'] = totalItems
     return heroData
 
+def getItemCountByType(heroData):
+    itemTypes = getAllItemTypes(heroData)
+    for itemType in itemTypes:
+        for hero in heroData:
+            typeCount = 0
+            for key in heroData[hero]:
+                if key.startswith("BP"):
+                    for item in heroData[hero][key]['free']:
+                        if item['type'] == itemType:
+                            typeCount += 1
+                    for item in heroData[hero][key]['paid']:
+                        if item['type'] == itemType:
+                            typeCount += 1
+            heroData[hero][f'total_{itemType}'] = typeCount
+    return heroData
+
+
+def getAllItemTypes(heroData):
+    itemTypes = set()
+    for hero in heroData:
+        for key in heroData[hero]:
+            if key.startswith("BP"):
+                for item in heroData[hero][key]['free']:
+                    itemTypes.add(item['type'])
+                for item in heroData[hero][key]['paid']:
+                    itemTypes.add(item['type'])
+    return list(itemTypes)
 
 def scrapeHTML(url, tagType, identifierType, identifierName):
     response = requests.get(url)
@@ -178,5 +205,6 @@ if __name__ == "__main__":
     heroData = parseNewBPTable(bpTableHTML, heroData)
 
     heroData = getTotalItems(heroData)
+    heroData = getItemCountByType(heroData)
 
     dumpToJSON(heroData, "bpData.json")
