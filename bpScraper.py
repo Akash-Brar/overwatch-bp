@@ -44,7 +44,7 @@ def getNewSeason(seasonText):
         return int(season[0])
     return None
 
-def addItemsToHeroData(heroData, items, season, itemType):
+def addItemsToHeroData(heroData, items, season, freeOrPaid):
     for item in items:
         hero = item["hero"]
         
@@ -54,11 +54,22 @@ def addItemsToHeroData(heroData, items, season, itemType):
         season_key = f"BP{season}"
         if season_key not in heroData[hero]:
             heroData[hero][season_key] = {"free": [], "paid": []}
+
+        existing_items = heroData[hero][season_key][freeOrPaid]
+        item_exists = False
         
-        heroData[hero][season_key][itemType].append({
-            'name': item['name'],
-            'type': item['type']
-        })
+        for existing_item in existing_items:
+            # Compare both name and type to determine uniqueness
+            if (existing_item['name'] == item['name'] and 
+                existing_item['type'] == item['type']):
+                item_exists = True
+                break
+        
+        if not item_exists:
+            heroData[hero][season_key][freeOrPaid].append({
+                'name': item['name'],
+                'type': item['type']
+            })
     
     return heroData
 
@@ -84,6 +95,16 @@ def getItemInCell(itemCell):
                     'type': itemType
                 })
     return item
+
+def getTotalItems(heroData):
+    for hero in heroData:
+        totalItems = 0
+        for key in heroData[hero]:
+            if key.startswith("BP"):
+                totalItems += len(heroData[hero][key]['free']) + len(heroData[hero][key]['paid'])
+        heroData[hero]['totalItems'] = totalItems
+    return heroData
+
 
 def scrapeHTML(url, tagType, identifierType, identifierName):
     response = requests.get(url)
@@ -141,22 +162,21 @@ def parseNewBPTable(tableHTML, heroData):
     return heroData
 
 if __name__ == "__main__":
-    if not openJSON("bpData.json"):
-        print("Scraping old Battle Pass data...")
-        oldBPUrl = "https://overwatch.fandom.com/wiki/List_of_previous_Battle_Passes"
-        herosUrl = "https://overwatch.fandom.com/wiki/Heroes"
+    oldBPUrl = "https://overwatch.fandom.com/wiki/List_of_previous_Battle_Passes"
+    herosUrl = "https://overwatch.fandom.com/wiki/Heroes"
 
-        herosTableHTML = scrapeHTML(herosUrl, "table", "class", "listtable")
-        herosData = parseHerosTable(herosTableHTML)
+    herosTableHTML = scrapeHTML(herosUrl, "table", "class", "listtable")
+    herosData = parseHerosTable(herosTableHTML)
 
-        bpTablesHTML = scrapeHTML(oldBPUrl, "table", "class", "fandom-table")
-        heroData = parseOldBPTable(bpTablesHTML, herosData)
+    bpTablesHTML = scrapeHTML(oldBPUrl, "table", "class", "fandom-table")
+    heroData = parseOldBPTable(bpTablesHTML, herosData)
 
-        dumpToJSON(heroData, "bpData.json")
-    else:
-        print("Loading existing Battle Pass data...")
-        data = openJSON("bpData.json")
-        newBPUrl = "https://overwatch.fandom.com/wiki/Battle_Pass"
-        bpTableHTML = scrapeHTML(newBPUrl, 'table', 'class', 'fandom-table')
-        heroData = parseNewBPTable(bpTableHTML, data)
-        dumpToJSON(heroData, "bpData.json")
+
+    newBPUrl = "https://overwatch.fandom.com/wiki/Battle_Pass"
+
+    bpTableHTML = scrapeHTML(newBPUrl, 'table', 'class', 'fandom-table')
+    heroData = parseNewBPTable(bpTableHTML, heroData)
+
+    heroData = getTotalItems(heroData)
+
+    dumpToJSON(heroData, "bpData.json")
