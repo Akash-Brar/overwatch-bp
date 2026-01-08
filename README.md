@@ -3,7 +3,7 @@
 A comprehensive web application that tracks and displays all cosmetic items available through Overwatch's Battle Pass system. This tool allows players to easily browse, search, and filter through every cosmetic item earned in each season's battle pass.
 
 ## 🌟 Live Demo
-[View Live Demo](#) <!-- Add your GitHub Pages link here -->
+[View Live Demo](https://akash-brar.github.io/overwatch-bp/)
 
 ## ✨ Features
 
