@@ -5,7 +5,7 @@ import re
 import time
 import os
 
-INCLUDE_PREVIOUS_BATTLE_PASSES = True
+INCLUDE_PREVIOUS_BATTLE_PASSES = False
 
 
 def loadJSON(filename):

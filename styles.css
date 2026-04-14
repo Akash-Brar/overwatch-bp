@@ -36,17 +36,24 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
-    align-items: center;
+    align-items: flex-end; /* better alignment */
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    overflow: visible; /* prevents dropdowns from getting visually cut off */
 }
 
 .filter-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    flex: 1;
-    min-width: 200px;
+    flex: 1 1 220px; /* more stable sizing */
+    min-width: 220px;
+    position: relative;
+    z-index: 1;
+}
+
+.filter-group:focus-within {
+    z-index: 50; /* focused input/dropdown appears above neighbors */
 }
 
 .filter-group label {
@@ -59,6 +66,7 @@ h1 {
 
 .filter-group select,
 .filter-group input {
+    width: 100%;
     padding: 12px 15px;
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -138,7 +146,7 @@ h1 {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border-radius: 15px;
-    overflow: hidden;
+    overflow: visible; /* important: allow sticky headers to work */
     margin-top: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -161,7 +169,7 @@ h1 {
     font-size: 14px;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 100;
     border-bottom: 2px solid #ff6b35;
 }
 
