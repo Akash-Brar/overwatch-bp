@@ -15,9 +15,15 @@ def get_item_types():
     soup = BeautifulSoup(response.content, "html.parser")
     item_type_list = soup.find("div", id="content").find("div", id="bodyContent").find("div", id="mw-content-text").find("div", class_="mw-content-ltr").find_all("ul")[1]
 
-    for li in item_type_list:
-        item_type = li.get_text(strip=True)
-        print(item_type)
+    item_types = []
+    for li in item_type_list.find_all("li"):
+        a_tag = li.find("a")
+        if a_tag and a_tag.has_attr("title"):
+            if a_tag["title"] not in ["Player Titles", "Souvenirs", "Weapon Charms", "Weapon Variants"]:
+                item_types.append(a_tag["title"])
+
+    return item_types
 
 if __name__ == "__main__":
-    get_item_types()
+    item_types = get_item_types()
+    print(item_types)
