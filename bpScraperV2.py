@@ -24,6 +24,21 @@ def get_item_types():
 
     return item_types
 
+def get_2022_to_2026_bp_items(bp_data):
+    response = requests.get(PRE_2026_BP_URL)
+
+    if response.status_code != 200:
+        raise Exception(f"Failed to fetch 2022-2026 BP items. Status code: {response.status_code}")
+
+    soup = BeautifulSoup(response.content, "html.parser")
+    bp_tables = soup.find_all("table", class_="wikitable")
+
+    for table in bp_tables:
+        table = table.find("tbody")
+        season = table.find_all("th")[0].text.strip()
+        
+  
+
 if __name__ == "__main__":
     item_types = get_item_types()
-    print(item_types)
+    get_2022_to_2026_bp_items()
