@@ -1,10 +1,41 @@
 from bs4 import BeautifulSoup
 import requests
+import re
 import json
 
+HEROS_URL = "https://overwatch.weirdgloop.org/w/Heroes"
 ITEM_TYPES_URL = "https://overwatch.weirdgloop.org/w/Cosmetics"
 PRE_2026_BP_URL = "https://overwatch.weirdgloop.org/w/List_of_previous_Battle_Passes/2022-2026"
 POST_2026_BP_URL = "https://overwatch.weirdgloop.org/w/List_of_previous_Battle_Passes/2026"
+
+def get_heros():
+    response = requests.get(HEROS_URL)
+
+    if response.status_code != 200:
+        raise Exception(f"Failed to fetch heroes. Status code: {response.status_code}")
+
+    soup = BeautifulSoup(response.content, "html.parser")
+    heros_table = soup.find("table", class_="navbox").find("tbody").find_all("li")
+
+    heros_data = {}
+    current_role = None
+    current_sub_role = None
+    for hero in reversed(heros_table):
+        hero_name = hero.text.strip()
+
+        if "[" in hero_name:
+            hero_name, role_info = hero_name.split("[", 1)
+            match = re.search(r'Sub-Role\s+(\w+)\s+(\w+)', role_info)
+            if match:
+                current_role = match.group(1)
+                current_sub_role = match.group(2)
+
+        heros_data[hero_name] = {
+            "role": current_role,
+            "sub_role": current_sub_role
+        }
+
+    return heros_data
 
 def get_item_types():
     response = requests.get(ITEM_TYPES_URL)
@@ -40,5 +71,7 @@ def get_2022_to_2026_bp_items(bp_data):
   
 
 if __name__ == "__main__":
-    item_types = get_item_types()
-    get_2022_to_2026_bp_items()
+    # item_types = get_item_types()
+    # get_2022_to_2026_bp_items()
+    heros = get_heros()
+    print(heros)
