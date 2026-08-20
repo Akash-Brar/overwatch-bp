@@ -55,7 +55,7 @@ def get_item_types():
 
     return item_types
 
-def get_2022_to_2026_bp_items(heros_data):
+def get_2022_to_2026_bp_items(heros_data, item_types):
     response = requests.get(PRE_2026_BP_URL)
 
     if response.status_code != 200:
@@ -71,25 +71,23 @@ def get_2022_to_2026_bp_items(heros_data):
         rows = table[2:]
         for row in rows:
             cells = row.find_all("td")[1:]
-            free_item = get_info_in_cell(cells[0])
-            paid_item = get_info_in_cell(cells[1])
+            free_item = get_info_in_cell(cells[0], item_types)
+            paid_item = get_info_in_cell(cells[1], item_types)
 
             print(free_item)
-            print()
             print(paid_item)
-            print()
             break
         break
 
 
-def get_info_in_cell(itemCell):
+def get_info_in_cell(itemCell, item_types):
     item = []
     itemLinks = itemCell.find_all("a")
     for link in itemLinks:
         if link.has_attr("href") and "Cosmetic" in link["href"]:
             hero_name = re.search(r'/w/(.*?)/Cosmetics', link["href"]).group(1)
             item_name = link.text.strip().replace(f" - {hero_name}", "")
-            item_type = item_name.split(" ")[1]
+            item_type = next((item_type for item_type in item_types if item_type in item_name), None)
             item.append({
                 "hero": hero_name,
                 "item_name": item_name,
@@ -99,6 +97,5 @@ def get_info_in_cell(itemCell):
 
 if __name__ == "__main__":
     heros = get_heros()
-    # item_types = get_item_types()
-    # print(item_types)
-    get_2022_to_2026_bp_items(heros)
+    item_types = get_item_types()
+    get_2022_to_2026_bp_items(heros, item_types)
