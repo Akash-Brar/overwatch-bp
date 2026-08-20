@@ -66,7 +66,7 @@ def get_2022_to_2026_bp_items(heros_data, item_types):
 
     for table in bp_tables:
         table = table.find("tbody").find_all("tr")
-        season = table[0].text.strip()
+        season = table[0].text.strip().replace(" Battle Pass", "")
 
         rows = table[2:]
         for row in rows:
@@ -75,10 +75,10 @@ def get_2022_to_2026_bp_items(heros_data, item_types):
                 free_item = get_info_in_cell(cells[0], item_types)
                 paid_item = get_info_in_cell(cells[1], item_types)
 
-                print(free_item)
-                print(paid_item)
-            
+                heros_data = add_item_to_hero_data(heros_data, free_item, season, "free")
+                heros_data = add_item_to_hero_data(heros_data, paid_item, season, "paid")
         break
+    print(heros_data)
 
 
 def get_info_in_cell(itemCell, item_types):
@@ -95,6 +95,22 @@ def get_info_in_cell(itemCell, item_types):
                 "item_type": item_type
             })
     return item
+
+def add_item_to_hero_data(heros_data, items, season, freeOrPaid):
+    if items:
+        for item in items:
+            if season not in heros_data[item["hero"]]:
+                heros_data[item["hero"]][season] = {}
+
+            if freeOrPaid not in heros_data[item["hero"]][season]:
+                heros_data[item["hero"]][season][freeOrPaid] = []
+
+            heros_data[item["hero"]][season][freeOrPaid].append({
+                "name": item["item_name"],
+                "type": item["item_type"]
+            })
+    return heros_data
+
 
 if __name__ == "__main__":
     heros = get_heros()
