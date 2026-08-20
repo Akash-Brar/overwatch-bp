@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import re
 import json
+from urllib.parse import unquote
 
 HEROS_URL = "https://overwatch.weirdgloop.org/w/Heroes"
 ITEM_TYPES_URL = "https://overwatch.weirdgloop.org/w/Cosmetics"
@@ -87,6 +88,10 @@ def get_info_in_cell(itemCell, item_types):
     for link in itemLinks:
         if link.has_attr("href") and "Cosmetic" in link["href"]:
             hero_name = re.search(r'/w/(.*?)/Cosmetics', link["href"]).group(1)
+            if "%" in hero_name:
+                hero_name = unquote(hero_name)
+            if "_" in hero_name:
+                hero_name = hero_name.replace("_", " ")
             item_name = link.text.strip().replace(f" - {hero_name}", "")
             item_type = next((item_type for item_type in item_types if item_type in item_name), None)
             item.append({
