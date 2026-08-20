@@ -71,12 +71,13 @@ def get_2022_to_2026_bp_items(heros_data, item_types):
         rows = table[2:]
         for row in rows:
             cells = row.find_all("td")[1:]
-            free_item = get_info_in_cell(cells[0], item_types)
-            paid_item = get_info_in_cell(cells[1], item_types)
+            if len(cells) == 2:
+                free_item = get_info_in_cell(cells[0], item_types)
+                paid_item = get_info_in_cell(cells[1], item_types)
 
-            print(free_item)
-            print(paid_item)
-            break
+                print(free_item)
+                print(paid_item)
+            
         break
 
 
